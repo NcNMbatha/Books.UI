@@ -1,0 +1,44 @@
+.listingContainer {
+    margin: 0px 40px;
+  }
+  
+  button{
+    width: 150px;
+    height: 40px;
+    border-radius: 0;
+  }
+  
+  .row{
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  
+  
+  mat-progress-spinner {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+  }
+  
+  
+  ::ng-deep .mat-progress-spinner circle,
+  .mat-spinner circle {
+    stroke: #104a8e !important;
+  }
+  
+  .error-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+    height: 200px;
+    margin-bottom: 60px;
+  }
+  
+  h3{
+    font-size: 35px;
+    font-weight: 500;
+  }

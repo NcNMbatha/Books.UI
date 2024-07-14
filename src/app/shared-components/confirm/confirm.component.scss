@@ -1,0 +1,31 @@
+
+.content-container{
+    margin: 5px 5px 15px 5px;
+    color: black;
+    display: flex;
+    text-align: center;
+}
+
+#no-button{
+height: 65px;
+width: 50%;
+background-color: #D3D3D3;
+color:#104a8e;
+border-radius: 0px;
+}
+
+#yes-button{
+    height: 65px;
+    width: 50%;
+    background-color: #104a8e;
+    color:white;
+    border-radius: 0px;
+}
+
+span.content-span{
+    padding:  35px 30px;
+    text-align: center;
+    font-size: 20px;
+    white-space: pre-line;
+}
+

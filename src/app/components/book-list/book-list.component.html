@@ -1,0 +1,30 @@
+<div class="listingContainer mat-elevation-z3">
+    <mat-toolbar class="mat-elevation-z2">
+      <span class="fill-remaining-space"></span>
+      <span>BOOKS</span>
+      <span class="fill-remaining-space"></span>
+    </mat-toolbar>
+    <div class="row">
+      <div class="col-md-6">
+        <button mat-raised-button color="primary" (click)="addBook()">
+          <mat-icon>add</mat-icon> Book
+        </button>
+      </div>
+      <div class="col-md-6">
+        <!-- <app-search (searchAction)="searchProduct($event)" (searchActiveState)="getSearchState($event)"></app-search> -->
+      </div>
+    </div>
+    <span *ngIf="bookDataSource.filteredData.length > 0">
+      <app-listing [columns]="columns" [displayColumns]="displayedColumns" [dataSource]="bookDataSource"
+        (rowActionEdit)="updateBook($event)" (rowActionDetails)="bookDetails($event)"
+        (rowAction)="deleteBook($event)" [actions]="productActions">
+      </app-listing>
+      <!-- <mat-paginator #paginator [length]="totalRows" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+        aria-label="select page" showFirstLastButtons (page)="pageChanging($event)">
+      </mat-paginator> -->
+    </span>
+    <div class="error-container" *ngIf="!spinerVisible && bookDataSource.filteredData.length == 0">
+      <h3>No data found!</h3>
+    </div>
+  </div>
+  <mat-progress-spinner mode="indeterminate" *ngIf="spinner$ | async"></mat-progress-spinner>
