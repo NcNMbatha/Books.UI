@@ -8,15 +8,15 @@ import { Injectable } from "@angular/core";
 @Injectable({
     providedIn:'root'
     })
-    
+
 export class BookService { 
     bookForm: FormGroup = new FormGroup({});
 
-    private getAllBooks = '';
-    private deleteBookUrl = '';
-    private addBookUrl = '';
-    private updateBookUrl = '';
-    private getBookByIdUrl = '';
+    private getAllBooks = '/book/get-books';
+    private deleteBookUrl = '/book/delete-book';
+    private addBookUrl = '/book/add-book';
+    private updateBookUrl = '/book/update-books';
+    private getBookByIdUrl = '/book/get-book';
 
     constructor(private httpClient: HttpClient) {}
 
@@ -92,11 +92,11 @@ export class BookService {
     });
     }
 
-    resetProductForm() {
+    resetBookForm() {
     this.bookForm.reset();
     }
 
-    productFormInitialize(): FormGroup {
+    bookFormInitialize(): FormGroup {
     this.bookForm = new FormGroup({
         Title: new FormControl('', Validators.required),
         Author: new FormControl('', Validators.required),

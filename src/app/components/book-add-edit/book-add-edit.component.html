@@ -1,0 +1,63 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field appearance="fill">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title" />
+                <mat-error *ngIf="bookForm.get('title')?.invalid">Title is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field appearance="fill">
+                <mat-label>Author</mat-label>
+                <input matInput formControlName="author" />
+                <mat-error *ngIf="bookForm.get('author')?.invalid">Author is required</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field appearance="fill">
+                <mat-label>Publication Date</mat-label>
+                <input matInput formControlName="publicationDate" type="date" />
+                <mat-error *ngIf="bookForm.get('publicationDate')?.invalid">Publication Date is required</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field appearance="fill">
+                <mat-label>ISBN</mat-label>
+                <input matInput formControlName="isbn" />
+                <mat-error *ngIf="bookForm.get('isbn')?.invalid">ISBN is required</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <mat-form-field appearance="fill">
+                <mat-label>Genre</mat-label>
+                <input matInput formControlName="genre" />
+                <mat-error *ngIf="bookForm.get('genre')?.invalid">Genre is required</mat-error>
+              </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field appearance="fill">
+                <mat-label>Price</mat-label>
+                <input matInput formControlName="price" type="number" />
+                <mat-error *ngIf="bookForm.get('price')?.invalid">Price is required</mat-error>
+              </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <mat-form-field appearance="fill">
+                <mat-label>Short Description</mat-label>
+                <textarea matInput formControlName="shortDescription"></textarea>
+                <mat-error *ngIf="bookForm.get('shortDescription')?.invalid">Short Description is required</mat-error>
+              </mat-form-field>
+        </div>
+    </div>
+    <button mat-raised-button color="primary" type="submit" [disabled]="bookForm.invalid">Add Book</button>
+  </form>
+  

@@ -12,6 +12,7 @@ import { NotificationService } from '../../services/notification.service';
 import { SpinerService } from '../../services/spiner.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HttpClient } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-book-list',
@@ -19,6 +20,7 @@ import { HttpClient } from '@angular/common/http';
   imports: [CommonModule, 
             MatToolbarModule,
             MatIconModule,
+            MatButtonModule,
             ListingComponent,
             MatProgressSpinnerModule],
   providers:[BookService,
@@ -101,15 +103,9 @@ constructor(private bookService: BookService,
 
 ngOnInit(): void {}
 
-    addBook(): void {
-    var book = null;
-    const dialogRef = this.dialogService.openProductCapture(book, false);
-    dialogRef.afterClosed().subscribe((response) => {
-      if (response) {
-        this.loadBooks();
-      }
-    });
-  }
+openDialog(): void {
+  const dialogRef = this.dialogService.openBookDialog();
+}
 
   
   ngAfterViewInit(): void {
@@ -155,13 +151,8 @@ ngOnInit(): void {}
     });
   }
 
-  updateBook(product: IBook) {
-    const dialogRef = this.dialogService.openProductCapture(product, true);
-    dialogRef.afterClosed().subscribe((response) => {
-      if (response) {
-        this.loadBooks(true);
-      }
-    });
+  updateBook(book: IBook) {
+
   }
 
   bookDetails(product: IBook) {
